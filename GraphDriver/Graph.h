@@ -81,6 +81,14 @@ public:
 		return f;
 	}
 
+	static Node *getById(Node *f, int id) {
+
+		while (f && f->id != id)
+			f = f->next;
+
+		return f;
+	}
+
 	static Edge *getLast(Edge *f) {
 
 		while (f->next)
@@ -102,15 +110,28 @@ public:
 		return f;
 	}
 
-	static void printNodes(Node *f){
+	static Edge *getById(Edge *f, int id) {
+
+		while (f && f->id != id)
+			f = f->next;
+
+		return f;
+	}
+
+	static void printEdges(Edge *f) {
+
+		for (Edge *p = f; p; p = p->next)
+			std::cout << p->id << ' ';
+
+		std::cout << "\n";
+	}
+
+	static void printGraph(Node *f){
 	
 		for (Node *p = f; p; p = p->next) {
-
 			std::cout << "Node " << p->id << " links to node:\n";
-			for (Edge *q = p->f; q; q = q->next)
-				std::cout << q->id << ' ';
-
-			std::cout << "\n";
+			printEdges(p->f);
 		}
 	}
+
 };
