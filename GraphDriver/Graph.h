@@ -134,4 +134,31 @@ public:
 		}
 	}
 
+	static void deleteEdge(Edge *&f) {
+
+		Edge *p = f, *q = f->next;
+		while (q) {
+
+			delete p;
+			p = q;
+			q = q->next;
+
+		}
+
+		delete p;
+	}
+
+	static void deleteGraph(Node *&f) {
+
+		Node *p = f, *q = f->next;
+		while (p) {
+
+			deleteEdge(p->f);
+			delete p;
+			p = q;
+			if(q->next)
+			q = q->next;
+		}
+	}
+
 };
