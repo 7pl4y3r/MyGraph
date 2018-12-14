@@ -118,6 +118,28 @@ public:
 		return f;
 	}
 
+	static int getSize(Node *f) {
+
+		int c = 0;
+		while (f) {
+			c++;
+			f = f->next;
+		}
+
+		return c;
+	}
+
+	static int getSize(Edge *f) {
+
+		int c = 0;
+		while (f) {
+			c++;
+			f = f->next;
+		}
+
+		return c;
+	}
+
 	static void printEdges(Edge *f) {
 
 		for (Edge *p = f; p; p = p->next)
